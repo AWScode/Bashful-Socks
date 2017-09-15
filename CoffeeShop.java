@@ -1,8 +1,7 @@
 import java.util.Scanner;
 public class CoffeeShop{
   public static void main(String[] args){
-    Scanner in=new Scanner(System.in);
-    String a =in.nextLine();
+
     System.out.println("Welcome to Yip Coffee!~");
 
     Scanner in1= new Scanner(System.in);
@@ -15,6 +14,10 @@ public class CoffeeShop{
 
     Scanner in3= new Scanner(System.in);
     String d = in3.nextLine();
-    System.out.println("Thank you. Here is your coffee~");
+    System.out.println("Thank you.");
+
+    System.out.println(d+ ", your "+ b + " in " + c +" is ready.");
+
+    //Vivian Yip 9/15/2017
   }
 }
