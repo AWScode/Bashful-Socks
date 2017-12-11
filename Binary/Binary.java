@@ -1,17 +1,30 @@
 //Vivian Yip
 //2017 12 06
 
-*/
 import java.util.*;
+
 
 public class Binary{
 
-public String add(){
+  // method
 
-}
+  public static Binary Addition (){
+    for (int i=0 ; i<8 ; i++);{
+      b[i]=second.charAt(i);
+      a[i]=first.charAt(i);
+
+    if (a [i].equal(0) && b [i].equal(0)){
+      f[i]= 0;}
+      else if (a[i].equal(1) && b[i].equal(0)) || (a[i].equal(0) && b[i].equal(1));{
+      f[i] =0;
+      remainder =1;}
+      else {f[i]=1;}
+    }
+  }
+  }
 
   public static void main(String[] args) {
-    Binary calculator = new calculator();
+
 
     System.out.println("Input first binary number:(please type one nubmer at a time, and press enter after every number)");
 
@@ -20,18 +33,9 @@ public String add(){
     int b = new int [8];
     int f = new int [8];
 
-    for (int i= 0; i < 8; i++){
-      char tempChar = number1.charAt(i);
-      data1[i] = Character.getNumericValue(tempChar);
-    }
-
-    for (int i= 0; i < 8; i++){
-      System.out.print(data1[i]);
-    }
-    System.out.print("no");
 
     Scanner first = new Scanner(System.in);
-    int 1 = parseInt(first.nextLine());
+    String a = parseInt(first.nextLine());
 
 
     System.out.println("Input second binary number:");
@@ -42,38 +46,7 @@ public String add(){
     System.out.println("Choose add, subtract, multiply, divide");
 
     Scanner function = new Scanner(System.in);
-    char operator = parseInt(first.nextLine());
-
-// method
-
-public static addition (){
-  if (a [0].equal(0) && b [0].equal(0)){
-    f[0]= 0;
-    else if ((a[0].equal(1) && b[0].equal(0)) || (a[0].equal(0) && b[0].equal(1))
-    f[0] =0;
-    remainder =1;
-    else f[0]=1
-  }
-  if (a [1].equal(0) && b [1].equal(0)){
-    f[1]= 0;
-    else if ((a[1].equal(1) && b[1].equal(0)) || (a[1].equal(0) && b[1].equal(1))
-    f[1] =0;
-    remainder =1;
-    else f[1]=1
+    char operator = parseInt(function.nextLine());
 }
-  if (a [2].equal(0) && b [2].equal(0)){
-    f[2]= 0;
-    else if ((a[2].equal(1) && b[2].equal(0)) || (a[2].equal(0) && b[2].equal(1))
-    f[2] =0;
-    remainder =1;
-    else f[2]=1
-  }
-  if (a [3].equal(0) && b [3].equal(0)){
-    f[3]= 0;
-    else if ((a[3].equal(1) && b[3].equal(0)) || (a[3].equal(0) && b[3].equal(1))
-    f[3] =0;
-    remainder =1;
-    else f[3]=1
-  }
-  }
+
 }
