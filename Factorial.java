@@ -12,12 +12,16 @@ public class Factorial{
     System.out.print("Please enter a number");
     Scanner input = new Scanner(System.in);
     long fac = input.nextLong();
-    System.out.println(fac);
+    long result = V(fac);
+    System.out.println(result);
   }
-  public static long V(String[] args) {
+  public static long V(long fac) {
 //method for Factorial
-    for (long i=num; i>=1; i--){
-      long fac = long num * i;
-      }
+    for (long i=fac; i>=1; i--){
+      fac = fac * i;
     }
+    return fac;
+    
   }
+
+}
