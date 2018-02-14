@@ -1,19 +1,13 @@
-/* Dog.java by Mr. Considine
-This class holds all of the data and methods
-to create Dog objects. This is a class to be
-imported and used in other files such as
-Pound.java which creates a bunch of dogs. */
-
 public class Student {
 
-  private static String name;
-  private static int age;
-  private static String class;
+  private String name;
+  private int age;
+  private String classes;
 
   public Student(String n, int a, String c) {
     this.name = n;
     this.age = a;
-    this.class = c;
+    this.classes = c;
   }
 
   public static void speak() {
@@ -21,27 +15,27 @@ public class Student {
   }
 
   public String getName() {
-    return this.name;
+    return name;
   }
 
-  public static int getAge() {
+  public int getAge() {
     return age;
   }
 
-  public static String getClass() {
-    return class;
+  public String getClasses() {
+    return classes;
   }
 
-  public static void setName(String n) {
+  public void setName(String n) {
     name = n;
   }
 
-  public static void setAge(int a) {
+  public void setAge(int a) {
     age = a;
   }
 
-  public static void setClass(String c) {
-    class = c;
+  public void setClass(String c) {
+    classes = c;
   }
 
 }
