@@ -1,9 +1,3 @@
-/* Dog.java by Mr. Considine
-This class holds all of the data and methods
-to create Dog objects. This is a class to be
-imported and used in other files such as
-Pound.java which creates a bunch of dogs. */
-
 public class Student {
 
   private static String name;
@@ -17,7 +11,7 @@ public class Student {
   }
 
   public static void speak() {
-    System.out.println("nice to meet you");
+    System.out.println("it is class time now");
   }
 
   public String getName() {
