@@ -6,11 +6,22 @@ public class Dic {
     System.out.println("Welcome to the Pound!");
     System.out.println("Here we have some students to see.");
 
-    Student Sam = new Student("Sam", 5, "Mr. Burns");
+    Student Sam = new Student("Sam", 15, "English and Chemistry", "Red");
 
-    Student Tom = new Student("Tom", 2, "Ms. Billings");
+    Student Tom = new Student("Tom", 16, "Algebra and Art", "Gold");
 
-    Student James = new Student("James", 20, "Mr. Sidman");
+    Student James = new Student("James", 17, "Biology and History", "Black");
+
+    Student John = new Student("John", 15, "Music and Geometry", "White");
+
+    Student Jenny = new Student("Jenny", 16, "Computer Science and English", "Brown");
+
+    Student Chris = new Student("Chris", 18, "Film and Psychology", "Hazelnut");
+
+    Student Grace = new Student("Grace", 15, "Art and History", "Gold");
+
+    Student Ivan = new Student("Ivan", 17, "Biology and Music", "Black");
+
 
     System.out.println("Here is one now:");
 
@@ -24,6 +35,11 @@ public class Dic {
     listofstudent.add(Sam);
     listofstudent.add(Tom);
     listofstudent.add(James);
+    listofstudent.add(John);
+    listofstudent.add(Jenny);
+    listofstudent.add(Chris);
+    listofstudent.add(Grace);
+    listofstudent.add(Ivan);
 
 
     for (int i=0; i<listofstudent.size(); i++){

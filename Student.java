@@ -4,10 +4,11 @@ public class Student {
   private int age;
   private String classes;
 
-  public Student(String n, int a, String c) {
+  public Student(String n, int a, String c, String d) {
     this.name = n;
     this.age = a;
     this.classes = c;
+    this.haircolor = d;
   }
 
   public static void speak() {
@@ -26,6 +27,10 @@ public class Student {
     return classes;
   }
 
+  public String getHaircolor() {
+    return haircolor;
+  }
+
   public void setName(String n) {
     name = n;
   }
@@ -34,8 +39,12 @@ public class Student {
     age = a;
   }
 
-  public void setClass(String c) {
+  public void setClasses(String c) {
     classes = c;
+  }
+
+  public void setHaircolor(String c) {
+    classes = h;
   }
 
 }
