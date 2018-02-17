@@ -3,12 +3,15 @@ public class Student {
   private String name;
   private int age;
   private String classes;
+  private String haircolor;
+  private String hobby;
 
-  public Student(String n, int a, String c, String d) {
+  public Student(String n, int a, String c, String h, String b) {
     this.name = n;
     this.age = a;
     this.classes = c;
-    this.haircolor = d;
+    this.haircolor = h;
+    this.hobby = b;
   }
 
   public static void speak() {
@@ -31,6 +34,10 @@ public class Student {
     return haircolor;
   }
 
+  public String getHobby() {
+    return hobby;
+  }
+
   public void setName(String n) {
     name = n;
   }
@@ -43,8 +50,12 @@ public class Student {
     classes = c;
   }
 
-  public void setHaircolor(String c) {
-    classes = h;
+  public void setHaircolor(String h) {
+    haircolor = h;
+  }
+
+  public void setHobby(String b) {
+    hobby = b;
   }
 
 }
