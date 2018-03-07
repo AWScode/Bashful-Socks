@@ -24,6 +24,18 @@ public class ConnectFour {
 
   Boolean gameOver;
 
+  public static void main(String[] args) {
+    Connectfour newGame = new Connectfour();
+    newGame.displayBoard();
+    newGame.checkFour();
+    String player = 2;
+
+
+  }
+
+
+
+
   public ConnectFour() {
     //Constructor Method here
     this.column1 = new String[6];
@@ -111,17 +123,41 @@ public class ConnectFour {
     }
   }
 
-  public void addPiece(int columnInd) {
+  public void addPiece(int columnInd, String player) {
       //Place a piece in the column that is passed in.
       //Find the lowest possible empty space and fill.
       //The largest row number that is empty.
 
-  }
+     /*System.out.println("  Which player are you?");
+     System.out.println("  press 1 - player 1");
+     System.out.println("  press 2 - player 2");
+     System.out.println(" ");
+     System.out.print("  ");
+     Scanner p = new Scanner(System.in);
+     int p = scanner.nextInt();
+
+     if (p > 6){
+       System.out.println("not a valid number")
+     }
+     else if (p )
+     */
+    for(int j =5; j<0; j--){
+     if (board[col][j] = "0"){
+       board[col][j] = player;
+     }
+     break
+   }
+
+     /*else if (board[col][j] = "1" || board[col][j] = "2"){
+       //change the one on the top
+       board[col][j-1] = player
+     }
+   } */
 
 
 
 
-  public void checkFour() {
+  /*public void checkFour() {
     for (int i = 0; j < 7; j++){
       for (int j = 0; i < 6; i++){
         if board [i][j].equals("1");
@@ -142,7 +178,7 @@ public class ConnectFour {
            //goes through board horizontally
            for(int w = 0; WIDTH > w; w += 1){
                for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == 'X'){ //if it finds an X, add 1 to counter
+                   if(board[w][h] == '1'){ //if it finds an X, add 1 to counter
                        counter += 1;
                    }else{
                        counter = 0; // if next piece is not an X, set counter to 0
@@ -169,7 +205,7 @@ public class ConnectFour {
            //goes through board vertically
            for(int h = 0; HEIGHT > h; h += 1){
                for(int w = 0; WIDTH > w; w += 1){
-                   if(board[w][h] == 'X'){ //if it finds an X, add 1 to counter
+                   if(board[w][h] == '1'){ //if it finds an X, add 1 to counter
                        counter += 1;
                    }else{
                        counter = 0; // if next piece is not an X, set counter to 0
@@ -196,7 +232,7 @@ public class ConnectFour {
            //goes through board vertically
            for(int h = 0; HEIGHT > h; h += 1){
                for(int w = 0; WIDTH > w; w += 1){
-                   if(board[w][h] == 'O'){ //if it finds an O, add 1 to counter
+                   if(board[w][h] == '2'){ //if it finds an O, add 1 to counter
                        counter += 1;
                    }else{
                        counter = 0; // if next piece is not an O, set counter to 0
@@ -223,7 +259,7 @@ public class ConnectFour {
            //goes through board vertically
            for(int w = 0; WIDTH > w; w += 1){
                for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == 'O'){ //if it finds an O, add 1 to counter
+                   if(board[w][h] == '2'){ //if it finds an O, add 1 to counter
                        counter += 1;
                    }else{
                        counter = 0; // if next piece is not an O, set counter to 0
@@ -256,12 +292,12 @@ public class ConnectFour {
        while(flag){ //goes through until an X is found
            for(int w = 0; WIDTH > w; w += 1){
                for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == 'X'){ //if X is found, add one to counter and go into loop
+                   if(board[w][h] == '1'){ //if X is found, add one to counter and go into loop
                        counter += 1;
                        check = true;
                        while(check){ //goes through diagonally looking for Xs
                            if(checkColumn + w <= WIDTH - 1&& checkRow + h <= HEIGHT - 1){
-                               if(board[w + checkColumn][h + checkRow] == 'X'){ //if X is found, add 1 to counter
+                               if(board[w + checkColumn][h + checkRow] == '1'){ //if X is found, add 1 to counter
                                    counter += 1;
                                }
                            }
@@ -316,12 +352,12 @@ public class ConnectFour {
        while(flag){ //goes through until an O is found
            for(int w = 0; WIDTH > w; w += 1){
                for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == 'O'){ //if O is found, add one to counter and go into loop
+                   if(board[w][h] == '2'){ //if O is found, add one to counter and go into loop
                        counter += 1;
                        check = true;
                        while(check){ //goes through diagonally looking for Os
                            if(checkColumn + w <= WIDTH - 1&& checkRow + h <= HEIGHT - 1){
-                               if(board[w + checkColumn][h + checkRow] == 'O'){ //if O is found, add 1 to counter
+                               if(board[w + checkColumn][h + checkRow] == '2'){ //if O is found, add 1 to counter
                                    counter += 1;
                                }
                            }
@@ -376,12 +412,12 @@ public class ConnectFour {
        while(flag){ //goes through until an X is found
            for(int w = 0; WIDTH > w; w += 1){
                for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == 'X'){ //if X is found, add one to counter and go into loop
+                   if(board[w][h] == '1'){ //if X is found, add one to counter and go into loop
                        counter += 1;
                        check = true;
                        while(check){ //goes through diagonally looking for Xs
                            if(w - checkColumn >= 0 && h - checkRow >= 0){
-                               if(board[w - checkColumn][h - checkRow] == 'X'){
+                               if(board[w - checkColumn][h - checkRow] == '1'){
                                    counter += 1; //if X is found, add 1 to counter
                                }
                            }
@@ -438,12 +474,12 @@ public class ConnectFour {
            //goes through until an O is found
            for(int w = 0; WIDTH > w; w += 1){
                for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == 'O'){ //if O is found, add one to counter and go into loop
+                   if(board[w][h] == '2'){ //if O is found, add one to counter and go into loop
                        counter += 1;
                        check = true;
                        while(check){ //goes through diagonally looking for Os
                            if(w - checkColumn >= 0 && h - checkRow >= 0){
-                               if(board[w - checkColumn][h - checkRow] == 'O'){
+                               if(board[w - checkColumn][h - checkRow] == '2'){
                                    counter += 1; //if O is found, add 1 to counter
                                }
                            }
@@ -503,11 +539,6 @@ public class ConnectFour {
        return flag;
    }
 
+*/
 
-
-
-  public static void main(String[] args) {
-    ConnectFour newGame = new ConnectFour();
-    newGame.displayBoard();
-  }
 }
