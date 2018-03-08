@@ -3,12 +3,9 @@
 
 import java.util.*;
 
-public class ConnectFour {
+public class Connectfour {
 
-    //variables
-    final static int WIDTH = 7;
-    final static int HEIGHT = 6;
-    final static int BOTTOM_ROW = WIDTH - 1;
+
 
 
   //Instance Variables here
@@ -27,16 +24,31 @@ public class ConnectFour {
   public static void main(String[] args) {
     Connectfour newGame = new Connectfour();
     newGame.displayBoard();
-    newGame.checkFour();
-    String player = 2;
+    //newGame.checkFour();
+    String player = "2";
+    while (true) {
+      if (player.equals("1")) {
+        player = "2";
+      }
+      else {
+        player = "1";
+      }
+      System.out.println("Player " + player + "s turn.");
 
-
+      Scanner newSc = new Scanner(System.in);
+      newGame.displayBoard();
+      System.out.println("Where do you want to play?");
+      int col = newSc.nextInt();
+      newGame.addPiece(col, player);
+    }
   }
 
+    //newGame.addPiece(col, player);
 
 
 
-  public ConnectFour() {
+
+  public Connectfour() {
     //Constructor Method here
     this.column1 = new String[6];
     this.column1[0] = "0";
@@ -108,7 +120,7 @@ public class ConnectFour {
 
   // Get and Set Methods here
   public void getPiece(){
-    return piece
+
 
   }
 
@@ -123,422 +135,13 @@ public class ConnectFour {
     }
   }
 
-  public void addPiece(int columnInd, String player) {
-      //Place a piece in the column that is passed in.
-      //Find the lowest possible empty space and fill.
-      //The largest row number that is empty.
-
-     /*System.out.println("  Which player are you?");
-     System.out.println("  press 1 - player 1");
-     System.out.println("  press 2 - player 2");
-     System.out.println(" ");
-     System.out.print("  ");
-     Scanner p = new Scanner(System.in);
-     int p = scanner.nextInt();
-
-     if (p > 6){
-       System.out.println("not a valid number")
-     }
-     else if (p )
-     */
-    for(int j =5; j<0; j--){
-     if (board[col][j] = "0"){
+  public void addPiece(int col, String player) {
+      
+    for(int j =5; j>-1; j--){
+     if (board[col][j].equals ("0")){
        board[col][j] = player;
+       break;
      }
-     break
    }
-
-     /*else if (board[col][j] = "1" || board[col][j] = "2"){
-       //change the one on the top
-       board[col][j-1] = player
-     }
-   } */
-
-
-
-
-  /*public void checkFour() {
-    for (int i = 0; j < 7; j++){
-      for (int j = 0; i < 6; i++){
-        if board [i][j].equals("1");
-        return [i][j];
-
-      }
-    }
-  }
-
-  public static boolean CheckXHorizontal(){
-       //creates boolean to act as flag
-       boolean flag = true;
-
-       //creates counter
-       int counter = 0;
-       while(flag){
-
-           //goes through board horizontally
-           for(int w = 0; WIDTH > w; w += 1){
-               for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == '1'){ //if it finds an X, add 1 to counter
-                       counter += 1;
-                   }else{
-                       counter = 0; // if next piece is not an X, set counter to 0
-                   }
-                   if(counter >= 4){
-                       System.out.println("Player 1 wins"); //if counter is greater or equal to 4, player wins
-                       flag = false;
-                   }
-               }
-           }
-           break;
-       }
-       return flag;
-   }
-
-   public static boolean CheckXVertical(){
-       //creates boolean to act as flag
-       boolean flag = true;
-
-       //creates counter
-       int counter = 0;
-       while(flag){
-
-           //goes through board vertically
-           for(int h = 0; HEIGHT > h; h += 1){
-               for(int w = 0; WIDTH > w; w += 1){
-                   if(board[w][h] == '1'){ //if it finds an X, add 1 to counter
-                       counter += 1;
-                   }else{
-                       counter = 0; // if next piece is not an X, set counter to 0
-                   }
-                   if(counter >= 4){
-                       System.out.println("Player 1 wins"); //if counter is greater or equal to 4, player wins
-                       flag = false;
-                   }
-               }
-           }
-           break;
-       }
-       return flag;
-   }
-
-   public static boolean CheckOVertical(){
-       //creates boolean to act as flag
-       boolean flag = true;
-
-       //creates counter
-       int counter = 0;
-       while(flag){
-
-           //goes through board vertically
-           for(int h = 0; HEIGHT > h; h += 1){
-               for(int w = 0; WIDTH > w; w += 1){
-                   if(board[w][h] == '2'){ //if it finds an O, add 1 to counter
-                       counter += 1;
-                   }else{
-                       counter = 0; // if next piece is not an O, set counter to 0
-                   }
-                   if(counter >= 4){
-                       System.out.println("Player 2 wins"); //if counter is greater or equal to 4, player wins
-                       flag = false;
-                   }
-               }
-           }
-           break;
-       }
-       return flag;
-   }
-
-   public static boolean CheckOHorizontal(){
-       //creates boolean to act as flag
-       boolean flag = true;
-
-       //creates counter
-       int counter = 0;
-       while(flag){
-
-           //goes through board vertically
-           for(int w = 0; WIDTH > w; w += 1){
-               for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == '2'){ //if it finds an O, add 1 to counter
-                       counter += 1;
-                   }else{
-                       counter = 0; // if next piece is not an O, set counter to 0
-                   }
-                   if(counter >= 4){
-                       System.out.println("Player 2 wins"); //if counter is greater or equal to 4, player wins
-                       flag = false;
-                   }
-               }
-           }
-           break;
-       }
-       return flag;
-   }
-
-   public static boolean CheckXDiagonalForward(){
-       //flag
-       boolean flag = true;
-
-       //counter
-       int counter = 0;
-
-       //check boolean
-       Boolean check = false;
-
-       //checkers
-       int checkColumn = 1;
-       int checkRow = 1;
-
-       while(flag){ //goes through until an X is found
-           for(int w = 0; WIDTH > w; w += 1){
-               for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == '1'){ //if X is found, add one to counter and go into loop
-                       counter += 1;
-                       check = true;
-                       while(check){ //goes through diagonally looking for Xs
-                           if(checkColumn + w <= WIDTH - 1&& checkRow + h <= HEIGHT - 1){
-                               if(board[w + checkColumn][h + checkRow] == '1'){ //if X is found, add 1 to counter
-                                   counter += 1;
-                               }
-                           }
-
-                           //adds 1 to checkers
-                           checkColumn += 1;
-                           checkRow += 1;
-
-                           if(checkColumn == WIDTH -1 || checkRow == HEIGHT -1){ //if outside of board, break
-                               check = false;
-                               break;
-                           }
-
-                           if(counter >= 4){
-                               System.out.println("Player 1 wins"); //if counter is greater or equal to 4, player wins
-                               check = false;
-                               flag = false;
-                               break;
-                           }
-                       }
-                   }
-                   if(counter >= 4){
-                       flag = false;
-                       break;
-                   }
-
-                   //resets counter and checkers
-                   counter = 0;
-                   checkColumn = 1;
-                   checkRow = 1;
-               }
-           }
-           break;
-       }
-       return flag;
-   }
-
-   public static boolean CheckODiagonalForward(){
-       //flag
-       boolean flag = true;
-
-       //counter
-       int counter = 0;
-
-       //check boolean
-       Boolean check = false;
-
-       //checkers
-       int checkColumn = 1;
-       int checkRow = 1;
-
-       while(flag){ //goes through until an O is found
-           for(int w = 0; WIDTH > w; w += 1){
-               for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == '2'){ //if O is found, add one to counter and go into loop
-                       counter += 1;
-                       check = true;
-                       while(check){ //goes through diagonally looking for Os
-                           if(checkColumn + w <= WIDTH - 1&& checkRow + h <= HEIGHT - 1){
-                               if(board[w + checkColumn][h + checkRow] == '2'){ //if O is found, add 1 to counter
-                                   counter += 1;
-                               }
-                           }
-
-                           //adds 1 to checkers
-                           checkColumn += 1;
-                           checkRow += 1;
-
-                           if(checkColumn == WIDTH -1 || checkRow == HEIGHT -1){ //if outside of board, break
-                               check = false;
-                               break;
-                           }
-
-                           if(counter >= 4){
-                               System.out.println("Player 2 wins"); //if counter is greater or equal to 4, player wins
-                               check = false;
-                               flag = false;
-                               break;
-                           }
-                       }
-                   }
-                   if(counter >= 4){
-                       flag = false;
-                       break;
-                   }
-
-                   //resets counter and checkers
-                   counter = 0;
-                   checkColumn = 1;
-                   checkRow = 1;
-               }
-           }
-           break;
-       }
-       return flag;
-   }
-
-   public static boolean CheckXDiagonalBack(){
-       //flag
-       boolean flag = true;
-
-       //counter
-       int counter = 0;
-
-       //check boolean
-       Boolean check = false;
-
-       //checkers
-       int checkColumn = 1;
-       int checkRow = 1;
-
-       while(flag){ //goes through until an X is found
-           for(int w = 0; WIDTH > w; w += 1){
-               for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == '1'){ //if X is found, add one to counter and go into loop
-                       counter += 1;
-                       check = true;
-                       while(check){ //goes through diagonally looking for Xs
-                           if(w - checkColumn >= 0 && h - checkRow >= 0){
-                               if(board[w - checkColumn][h - checkRow] == '1'){
-                                   counter += 1; //if X is found, add 1 to counter
-                               }
-                           }
-
-                           //adds 1 to checkers
-                           checkColumn += 1;
-                           checkRow += 1;
-
-                           if(checkColumn == 0 || checkRow == HEIGHT -1){ //if outside of board, break
-                               check = false;
-                               break;
-                           }
-
-                           if(counter >= 4){
-                               System.out.println("Player 1 wins"); //if counter is greater or equal to 4, player wins
-                               check = false;
-                               flag = false;
-                               break;
-                           }
-                       }
-                   }
-                   if(counter >= 4){
-                       flag = false;
-                       break;
-                   }
-
-                   //resets counter and checkers
-                   counter = 0;
-                   checkColumn = 1;
-                   checkRow = 1;
-               }
-           }
-           break;
-       }
-       return flag;
-   }
-
-   public static boolean CheckODiagonalBack(){
-       //flag
-       boolean flag = true;
-
-       //counter
-       int counter = 0;
-
-       //check boolean
-       Boolean check = false;
-
-       //checkers
-       int checkColumn = 1;
-       int checkRow = 1;
-
-       while(flag){
-
-           //goes through until an O is found
-           for(int w = 0; WIDTH > w; w += 1){
-               for(int h = 0; HEIGHT > h; h += 1){
-                   if(board[w][h] == '2'){ //if O is found, add one to counter and go into loop
-                       counter += 1;
-                       check = true;
-                       while(check){ //goes through diagonally looking for Os
-                           if(w - checkColumn >= 0 && h - checkRow >= 0){
-                               if(board[w - checkColumn][h - checkRow] == '2'){
-                                   counter += 1; //if O is found, add 1 to counter
-                               }
-                           }
-
-                           //adds 1 to checkers
-                           checkColumn += 1;
-                           checkRow += 1;
-
-                           if(checkColumn == 0 || checkRow == HEIGHT -1){ //if outside of board, break
-                               check = false;
-                               break;
-                           }
-
-                           if(counter >= 4){
-                               System.out.println("Player 2 wins"); //if counter is greater or equal to 4, player wins
-                               check = false;
-                               flag = false;
-                               break;
-                           }
-                       }
-                   }
-                   if(counter >= 4){
-                       flag = false;
-                       break;
-                   }
-
-                   //resets counter and checkers
-                   counter = 0;
-                   checkColumn = 1;
-                   checkRow = 1;
-               }
-           }
-           break;
-       }
-       return flag;
-   }
-
-   public static boolean CheckX(){
-       //creates flag
-       boolean flag = true;
-
-       //checks all Xs at once, for clearner main loop
-       if(!CheckXVertical() || !CheckXHorizontal()|| !CheckXDiagonalBack()|| !CheckXDiagonalForward()){
-           flag = false;
-       }
-       return flag;
-   }
-
-   public static boolean CheckO(){
-       //creates flag
-       boolean flag = true;
-
-       //checks all Os at once, for clearner main loop
-       if(!CheckOVertical() || !CheckOHorizontal() || !CheckODiagonalBack() || !CheckODiagonalForward()){
-           flag = false;
-       }
-       return flag;
-   }
-
-*/
-
+ }
 }
