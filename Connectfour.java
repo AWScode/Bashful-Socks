@@ -38,7 +38,8 @@ public class Connectfour {
       Scanner newSc = new Scanner(System.in);
       newGame.displayBoard();
       System.out.println("Where do you want to play?");
-      int col = newSc.nextInt();
+      int col = newSc.nextInt()-1;
+      //-1 in order to let 1 be the first column
       newGame.addPiece(col, player);
     }
   }
@@ -136,12 +137,40 @@ public class Connectfour {
   }
 
   public void addPiece(int col, String player) {
-      
+
     for(int j =5; j>-1; j--){
      if (board[col][j].equals ("0")){
        board[col][j] = player;
        break;
      }
+     else if (board[col][0].equals ("1") || board[col][0].equals ("2")){
+       System.out.println("-----------Not here-----------");
+       //if the person misplaced it in a column that is already full, she/he will not have another chance to put another piece
+       break;
+     }
    }
  }
-}
+
+ public void checkFour(String player){
+   for(int col =0; col<7; col++){
+     for (int j = 0; j<6; j++){
+       if (board[col][j].equals("1")){
+       for (int k=0; k<4; k++){
+         /*if (!board[col+k][j+k].equals ("1")){
+           return false;
+       }*/
+       if (board[col+k][j-k].equals ("1")){
+         System.out.println("Player 1 won");
+         System.out.println("press control + c");
+         break;
+       }
+     }
+
+
+
+   }
+     }
+
+    }
+  }
+ }
