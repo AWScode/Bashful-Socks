@@ -41,6 +41,8 @@ public class Connectfour {
       int col = newSc.nextInt()-1;
       //-1 in order to let 1 be the first column
       newGame.addPiece(col, player);
+      newGame.checkFour(player);
+
     }
   }
 
@@ -152,18 +154,26 @@ public class Connectfour {
  }
 
  public void checkFour(String player){
-   for(int col =0; col<7; col++){
+   int c = 0;
+   for(int i =0; i<7; i++){
      for (int j = 0; j<6; j++){
-       if (board[col][j].equals("1")){
+       if (board[i][j].equals("1")){
        for (int k=0; k<4; k++){
          /*if (!board[col+k][j+k].equals ("1")){
            return false;
        }*/
-       if (board[col+k][j-k].equals ("1")){
+       if (board[i+k][j-k].equals ("1")){
+         k = k+1;
+         c = c+1;
+         if (c == 6){
          System.out.println("Player 1 won");
          System.out.println("press control + c");
-         break;
+
        }
+
+       }
+       break;
+
      }
 
 
@@ -173,4 +183,4 @@ public class Connectfour {
 
     }
   }
- }
+}
