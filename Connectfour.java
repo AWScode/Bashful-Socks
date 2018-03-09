@@ -43,7 +43,7 @@ public class Connectfour {
       newGame.addPiece(col, player);
       newGame.checkFourUR(player);
       newGame.checkFourR(player);
-      newGame.checkFourDR(player);
+      
       newGame.checkFourD(player);
 
     }
@@ -158,38 +158,6 @@ public class Connectfour {
 
 
 
-
- public void checkFour(String player){
-   int c = 0;
-   for(int i =0; i<7; i++){
-     for (int j = 0; j<6; j++){
-       if (board[i][j].equals("1")){
-       for (int k=0; k<4; k++){
-         if (board[i+k][j-k].equals ("1")){
-           k = k+1;
-           c = c+1;
-         if (c == 6){
-         System.out.println("Player 1 won");
-         System.out.println("press control + c");
-
-       }
-
-       }
-       break;
-
-     }
-
-
-
-   }
-     }
-
-    }
-  }
-
-
-
-
  public void checkFourUR(String player){
    int c = 0;
    for(int i =0; i<7; i++){
@@ -200,20 +168,16 @@ public class Connectfour {
        if (board[i+k][j-k].equals ("1")){
          k = k+1;
          c++;
-         if (c == 3){
-         System.out.println("Player 1 won UR");
-         System.out.println("press control + c");
-         break;
-
-
-       }
-
+         System.out.println(c);
      }
      else if (board[i+k][j-k].equals ("0") || board[i+k][j-k].equals ("2")){
        break;
      }
-
-
+}
+if (c == 2){
+System.out.println("Player 1 won UR");
+System.out.println("press control + c");
+break;
 
 
 }
@@ -250,32 +214,6 @@ public void checkFourR(String player){
 }
 }
 
-
-public void checkFourDR(String player){
-  int c = 0;
-  for(int i =0; i<7; i++){
-    for (int j = 0; j<6; j++){
-      if (board[i][j].equals("1")){
-      for (int k=0; k<4; k++){
-        /*if (!board[col+k][j+k].equals ("1")){
-          return false;
-      }*/
-      if (board[i+k][j+k].equals ("1")){
-        k = k+1;
-        c = c+1;
-        if (c == 6){
-        System.out.println("Player 1 won DR");
-        System.out.println("press control + c");
-
-      }
-    }
-
-    break;
-}
-}
-}
-}
-}
 
 public void checkFourD(String player){
   int c = 0;
