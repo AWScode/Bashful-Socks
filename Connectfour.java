@@ -37,7 +37,7 @@ public class Connectfour {
 
 
       Boolean added = false;
-      while (!added) {
+      while (!added) {//make sure to give the player another chance if the player put it on the wrong spot
 
 
       Scanner newSc = new Scanner(System.in);//gethers user's input
@@ -187,14 +187,14 @@ public class Connectfour {
        if (board[i][j].equals("1")){//once found a 1 on the board (the first one found)
          c = 1;
 
-       for (int k=1; k<4; k++){
+       for (int k=1; k<4; k++){//loop 3 times
 //UR
-         if (j-k > -1){
+         if (j-k > -1){//make sure to not check the place that doesn't exist
            if (i+k < 7){
 
        if (board[i+k][j-k].equals ("0")){//then will look in the NW direction for another 1
 
-         c = 1;//not sure what this does
+         c = 1;
          break;//stop the loop
      }
      else if (board[i+k][j-k].equals ("2")){
@@ -214,7 +214,7 @@ public class Connectfour {
 }
 
 
-c = 1;
+c = 1;//the first piece
           for (int k = 1; k < 4; k++) {
             //right
             if (i + k < 7) {
