@@ -23,9 +23,10 @@ public class Connectfour {
 
   public static void main(String[] args) {//main method
     Connectfour newGame = new Connectfour();
-    newGame.displayBoard();//runs displayBoard method
+
     //newGame.checkFour();
     String player = "2"; //player = 2
+    int turnC = 1;
     while (true) {
       if (player.equals("1")) { //if player is 1
         player = "2"; //then player actually equals 2
@@ -33,16 +34,31 @@ public class Connectfour {
       else {
         player = "1"; //otherwise player = 1
       }
-      System.out.println("Player " + player + "s turn.");
+
+
+      Boolean added = false;
+      while (!added) {
+
 
       Scanner newSc = new Scanner(System.in);//gethers user's input
       newGame.displayBoard();//displays board in whatever form (original or new)
+      System.out.println(" ");
+      System.out.println(" === Turn " + turnC + " === ");
+      System.out.println(" ");
+      System.out.println("Player " + player + "s turn.");
+      System.out.println(" ");
       System.out.println("Where do you want to play?");
       int col = newSc.nextInt()-1; //user's input minus 1 = the column number used for addPiece
       //-1 in order to let 1 be the first column
-      newGame.addPiece(col, player); //runs method and sets col and player as parameters for addPiece method
+      added = newGame.addPiece(col, player);
+      if (!added) {
+        System.out.println("Column full, please choose another play.");
+} //runs method and sets col and player as parameters for addPiece method
+}
       newGame.checkFour();//runs the different checkFour methods
       Boolean end = newGame.checkFour();
+
+      turnC++;
       if (end == true) {
         System.out.println("Game Over! ");
         System.out.println("Player " + player + " wins!");
@@ -145,20 +161,22 @@ public class Connectfour {
     }
   }
 
-  public void addPiece(int col, String player) {//method to add a piece. user and column determined in main
+  public Boolean addPiece(int col, String player) {//method to add a piece. user and column determined in main
 
     for(int j =5; j>-1; j--){//loops through rows
      if (board[col][j].equals ("0")){//if the space is empty...
        board[col][j] = player;//then replace 0 with whatever player it is (either 1 or 2)
        break;//stop loop
      }
-     else if (board[col][0].equals ("1") || board[col][0].equals ("2")){//otherwise, if the space is full...
-       System.out.println("-----------Not here-----------");//it means the column is full so this will be outputted
-       //if the person misplaced it in a column that is already full, she/he will not have another chance to put another piece
-       break;
-     }
+     if (j == 0){
+     return false;
    }
- }
+
+     }
+     return true;
+  }
+
+
 
 
 
